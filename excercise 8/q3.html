@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Confirmation</title>
+    <script>
+        function confirmStudent() {
+            let isStudent = confirm("Are you a student?");
+            if (isStudent) {
+                let regNo = prompt("Enter your registration number:");
+                alert("Registration Number: " + regNo);
+            } else {
+                alert("Only students are allowed.");
+            }
+        }
+    </script>
+</head>
+<body onload="confirmStudent()">
+</body>
+</html>

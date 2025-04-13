@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Stopwatch with Extras</title>
+  <style>
+    #display {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    textarea {
+      display: block;
+      margin-top: 20px;
+      width: 300px;
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="display">00:00:00</div>
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+  <button id="reset">Reset</button>
+
+  <script>
+    let timer;
+    let seconds = 0;
+    let running = false;
+
+    function updateDisplay() {
+      let hrs = Math.floor(seconds / 3600);
+      let mins = Math.floor((seconds % 3600) / 60);
+      let secs = seconds % 60;
+
+      document.getElementById("display").textContent =
+        String(hrs).padStart(2, '0') + ":" +
+        String(mins).padStart(2, '0') + ":" +
+        String(secs).padStart(2, '0');
+    }
+
+    window.onload = function () {
+      document.getElementById("start").addEventListener("click", () => {
+        if (!running) {
+          running = true;
+          timer = setInterval(() => {
+            seconds++;
+            updateDisplay();
+          }, 1000);
+        }
+      });
+
+      document.getElementById("stop").addEventListener("click", () => {
+        running = false;
+        clearInterval(timer);
+      });
+
+      document.getElementById("reset").addEventListener("click", () => {
+        running = false;
+        clearInterval(timer);
+        seconds = 0;
+        updateDisplay();
+      });
+
+      updateDisplay();
+
+      function createDOBInput() {
+        let dobInput = document.createElement("input");
+        dobInput.type = "text";
+        dobInput.placeholder = "Enter DOB: YYYY-MM-DD";
+        document.body.appendChild(dobInput);
+
+        let ageDisplay = document.createElement("span");
+        ageDisplay.style.marginLeft = "10px";
+        document.body.appendChild(ageDisplay);
+
+        dobInput.addEventListener("mouseover", () => {
+          let dob = new Date(dobInput.value);
+          if (isNaN(dob)) {
+            ageDisplay.textContent = " ← Invalid date";
+            return;
+          }
+
+          let today = new Date();
+          let age = today.getFullYear() - dob.getFullYear();
+          if (
+            today.getMonth() < dob.getMonth() ||
+            (today.getMonth() === dob.getMonth() && today.getDate() < dob.getDate())
+          ) {
+            age--;
+          }
+
+          ageDisplay.textContent = ` ← Age: ${age}`;
+        });
+      }
+
+      function createCharacterCounter() {
+        let textArea = document.createElement("textarea");
+        document.body.appendChild(textArea);
+
+        let counter = document.createElement("div");
+        counter.textContent = "Characters: 0";
+        document.body.appendChild(counter);
+
+        textArea.addEventListener("input", () => {
+          counter.textContent = `Characters: ${textArea.value.length}`;
+        });
+      }
+
+      createDOBInput();
+      createCharacterCounter();
+    };
+  </script>
+
+</body>
+</html>

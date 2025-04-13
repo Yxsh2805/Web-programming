@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        img {
+            height: 150px;
+            width: 150px;
+            border: 2px solid black;
+            border-radius: 100%;
+        }
+
+        .title {
+            position: absolute;
+            top: 180px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            color: white;
+            font-family: Arial, sans-serif;
+            opacity: 0;
+            animation: titleAnimation 2s backwards;
+        }
+
+        @keyframes titleAnimation {
+            0% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(30px);
+                color: white;
+                font-family: Arial, sans-serif;
+            }
+            50% {
+                opacity: 1;
+                color: #ff6347; /* Tomato color */
+                font-family: 'Courier New', Courier, monospace;
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+                color: #4CAF50; /* Green color */
+                font-family: 'Georgia', serif;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="https://static.wixstatic.com/media/5c7601_b63bb046a5884a6a84912aa81943313a~mv2_d_1213_1500_s_2.png/v1/fill/w_568,h_702,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/5c7601_b63bb046a5884a6a84912aa81943313a~mv2_d_1213_1500_s_2.png" alt="Image">
+        <div class="title">Alec benjamin</div>
+    </div>
+</body>
+</html>

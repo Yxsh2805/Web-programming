@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Scene</title>
+</head>
+<body>
+    <canvas id="sceneCanvas" width="800" height="500"></canvas>
+
+    <script>
+        let canvas = document.getElementById("sceneCanvas");
+        let ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "blue";
+        ctx.beginPath();
+        ctx.ellipse(400, 400, 200, 80, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+
+        ctx.fillStyle = "yellow";
+        ctx.beginPath();
+        ctx.arc(100, 100, 50, 0, Math.PI * 2);
+        ctx.fill();
+
+        for (let i = 0; i < 12; i++) {
+            let angle = (Math.PI / 6) * i;
+            let x1 = 100 + Math.cos(angle) * 50;
+            let y1 = 100 + Math.sin(angle) * 50;
+            let x2 = 100 + Math.cos(angle) * 70;
+            let y2 = 100 + Math.sin(angle) * 70;
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.stroke();
+        }
+
+        
+        ctx.fillStyle = "brown";
+        ctx.beginPath();
+        ctx.moveTo(320, 350);
+        ctx.lineTo(480, 350);
+        ctx.quadraticCurveTo(500, 380, 300, 380);
+        ctx.fill();
+
+        
+        ctx.fillStyle = "orange";
+        ctx.beginPath();
+        ctx.arc(600, 360, 20, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(630, 370, 30, 0, Math.PI * 2);
+        ctx.fill();
+
+        
+        ctx.fillStyle = "red";
+        ctx.fillRect(200, 250, 100, 100);
+        ctx.fillStyle = "brown";
+        ctx.beginPath();
+        ctx.moveTo(200, 250);
+        ctx.lineTo(300, 250);
+        ctx.lineTo(250, 200);
+        ctx.closePath();
+        ctx.fill();
+    </script>
+</body>
+</html>

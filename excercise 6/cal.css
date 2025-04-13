@@ -1,0 +1,32 @@
+table{
+    background-color: aqua;
+    border-spacing: 5px;
+}
+
+#dis{
+    background-color: blue;
+}
+button{
+    height: 50px;
+    width: 70px;
+    margin: 2px;
+    font-size: 18px;
+}
+
+.opr{
+    background-color: rgb(233, 209, 212);
+}
+#b1{
+    background-color: rgb(230, 143, 158);
+    color: white;
+}
+#b2{
+    background-color: rgb(188, 107, 196);
+    color: white;
+}
+
+
+
+#e{
+    background-color: greenyellow;
+}

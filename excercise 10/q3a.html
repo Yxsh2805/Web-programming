@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Order Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .order-form {
+            background-color: #8e9c88;
+            padding: 20px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+
+        .order-form h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .input-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .input-group label {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="tel"],
+        .input-group input[type="email"] {
+            flex: 2;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        hr {
+            border: 0.5px solid #ccc;
+            margin: 15px 0;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .product img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .product label {
+            flex: 2;
+        }
+
+        .product span {
+            flex: 1;
+            text-align: center;
+        }
+
+        .product input[type="checkbox"] {
+            flex: 0;
+        }
+
+        .product input[type="number"] {
+            width: 50px;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #b08c5f;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #a07a4e;
+        }
+    </style>
+</head>
+<body>
+    <div class="order-form">
+        <h1>Grocery Order Form</h1>
+        <form action="#" method="GET">
+            <!-- Customer Details -->
+            <div class="input-group">
+                <label>Customer Name</label>
+                <input type="text" name="customerName" required>
+            </div>
+            <div class="input-group">
+                <label>Phone Number</label>
+                <input type="tel" name="phoneNumber" required>
+            </div>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" name="email" required>
+            </div>
+            <hr>
+
+            <!-- Products -->
+            <h2>Products</h2>
+            <div class="product">
+                <label>Apple</label>
+                <span>$ 10</span>
+                <input type="checkbox" name="product" value="Apple">
+                <input type="number" name="appleQty" min="1" placeholder="kg">
+            </div>
+            <div class="product">
+                <label>Banana</label>
+                <span>$ 5</span>
+                <input type="checkbox" name="product" value="Banana">
+                <input type="number" name="bananaQty" min="1" placeholder="kg">
+            </div>
+            <div class="product">
+                <label>Avocado</label>
+                <span>$ 7</span>
+                <input type="checkbox" name="product" value="Avocado">
+                <input type="number" name="avocadoQty" min="1" placeholder="kg">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">SUBMIT</button>
+        </form>
+    </div>
+</body>
+</html>

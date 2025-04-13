@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+<body>
+
+    <h2>Form Validation</h2>
+
+    <form id="myForm">
+        <label>Name* (Max 15 chars):</label>
+        <input type="text" id="name" required>
+        <div class="error" id="nameError"></div>
+
+        <label>Address*:</label>
+        <textarea id="address" required></textarea>
+        <div class="error" id="addressError"></div>
+
+        <label>Zip Code* (Max 6 digits):</label>
+        <input type="text" id="zip" required>
+        <div class="error" id="zipError"></div>
+
+        <label>Country*:</label>
+        <select id="country" required>
+            <option value="">Select Country</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="UK">UK</option>
+            <option value="India">India</option>
+        </select>
+        <div class="error" id="countryError"></div>
+
+        <label>Gender*:</label>
+        <div class="radio-group">
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female"> Female
+        </div>
+        <div class="error" id="genderError"></div>
+
+        <label>Preferences*:</label>
+        <div class="radio-group">
+            <input type="radio" name="preference" value="Red"> Red
+            <input type="radio" name="preference" value="Blue"> Blue
+            <input type="radio" name="preference" value="Green"> Green
+        </div>
+        <div class="error" id="preferenceError"></div>
+
+        <label>Phone Number* (10 digits):</label>
+        <input type="text" id="phone" required>
+        <div class="error" id="phoneError"></div>
+
+        <label>Email*:</label>
+        <input type="email" id="email" required>
+        <div class="error" id="emailError"></div>
+
+        <label>Password* (8-15 chars, includes number, special character & letter):</label>
+        <input type="password" id="password" required>
+        <div class="error" id="passwordError"></div>
+
+        <label>PAN Card Number* (Format: ABCDE1234F):</label>
+        <input type="text" id="pan" required>
+        <div class="error" id="panError"></div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="output"></div>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function (event) {
+            let valid = true;
+
+            document.querySelectorAll(".error").forEach(el => el.textContent = "");
+            document.getElementById("output").style.display = "none";
+
+            function showError(id, message) {
+                document.getElementById(id).textContent = message;
+                valid = false;
+            }
+
+            let name = document.getElementById("name");
+            if (name.value.trim() === "" || name.value.length > 15) {
+                showError("nameError", "Name is required (Max 15 chars)!");
+                name.focus();
+            }
+
+            let address = document.getElementById("address");
+            if (address.value.trim() === "") {
+                showError("addressError", "Address is required!");
+            }
+
+            let zip = document.getElementById("zip");
+            if (!/^\d{1,6}$/.test(zip.value)) {
+                showError("zipError", "Zip code must be numeric and max 6 digits!");
+            }
+
+            let country = document.getElementById("country");
+            if (country.value === "") {
+                showError("countryError", "Please select a country!");
+            }
+
+            let gender = document.querySelector('input[name="gender"]:checked');
+            if (!gender) {
+                showError("genderError", "Please select your gender!");
+            }
+
+            let preference = document.querySelector('input[name="preference"]:checked');
+            if (!preference) {
+                showError("preferenceError", "Please select a preference!");
+            }
+
+            let phone = document.getElementById("phone");
+            if (!/^\d{10}$/.test(phone.value)) {
+                showError("phoneError", "Phone number must be exactly 10 digits!");
+            }
+
+            let email = document.getElementById("email");
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email.value)) {
+                showError("emailError", "Invalid email format!");
+            }
+
+            let password = document.getElementById("password");
+            let passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/;
+            if (!passwordPattern.test(password.value)) {
+                showError("passwordError", "Password must be 8-15 chars, include a number, letter & special character!");
+            }
+
+            let pan = document.getElementById("pan");
+            let panPattern = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+            if (!panPattern.test(pan.value)) {
+                showError("panError", "Invalid PAN format (ABCDE1234F)!");
+            }
+
+            if (!valid) {
+                event.preventDefault();
+                return;
+            }
+
+            event.preventDefault();
+            let output = `
+                <h3>Form Submission Data:</h3>
+                <p><strong>Name:</strong> ${name.value}</p>
+                <p><strong>Address:</strong> ${address.value}</p>
+                <p><strong>Zip Code:</strong> ${zip.value}</p>
+                <p><strong>Country:</strong> ${country.value}</p>
+                <p><strong>Gender:</strong> ${gender.value}</p>
+                <p><strong>Preference:</strong> ${preference.value}</p>
+                <p><strong>Phone:</strong> ${phone.value}</p>
+                <p><strong>Email:</strong> ${email.value}</p>
+                <p><strong>PAN:</strong> ${pan.value}</p>
+            `;
+            document.getElementById("output").innerHTML = output;
+            document.getElementById("output").style.display = "block";
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML Form Exercise</title>
+    <style>
+        .inline {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <!-- Login Section -->
+        <fieldset>
+            <legend>Login</legend>
+            <label for="username">Username*</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="password">Password*</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+        </fieldset><br>
+
+        <!-- Gender Section -->
+        <fieldset>
+            <legend>Gender*</legend>
+            <div class="inline">
+                <input type="radio" id="male" name="gender" value="Male" required>
+                <label for="male">Male</label>
+
+                <input type="radio" id="female" name="gender" value="Female" required>
+                <label for="female">Female</label>
+            </div>
+        </fieldset><br>
+
+        <!-- Programming Skills Section -->
+        <fieldset>
+            <legend>Programming Skill</legend>
+            <div class="inline">
+                <input type="checkbox" id="java" name="skill" value="Java">
+                <label for="java">Java</label>
+
+                <input type="checkbox" id="cpp" name="skill" value="C++">
+                <label for="cpp">C++</label>
+
+                <input type="checkbox" id="csharp" name="skill" value="C#">
+                <label for="csharp">C#</label>
+            </div>
+        </fieldset><br>
+
+        <!-- Fruit Selection Section -->
+        <fieldset>
+            <legend>Fruit</legend>
+            <label for="fruit">Choose a fruit:</label><br>
+            <select id="fruit" name="fruit">
+                <optgroup label="Pome">
+                    <option value="apples">Apples</option>
+                    <option value="pears">Pears</option>
+                </optgroup>
+                <optgroup label="Citrus">
+                    <option value="oranges">Oranges</option>
+                    <option value="grapefruits">Grapefruits</option>
+                    <option value="mandarins">Mandarins</option>
+                    <option value="limes">Limes</option>
+                </optgroup>
+                <optgroup label="Stone">
+                    <option value="nectarines">Nectarines</option>
+                    <option value="apricots">Apricots</option>
+                    <option value="peaches">Peaches</option>
+                    <option value="plums">Plums</option>
+                </optgroup>
+                <optgroup label="Exotic">
+                    <option value="bananas">Bananas</option>
+                    <option value="mangoes">Mangoes</option>
+                </optgroup>
+                <optgroup label="Berries">
+                    <option value="strawberries">Strawberries</option>
+                    <option value="raspberries">Raspberries</option>
+                    <option value="blueberries">Blueberries</option>
+                    <option value="kiwifruit">Kiwifruit</option>
+                    <option value="passionfruit">Passionfruit</option>
+                </optgroup>
+                <optgroup label="Melons">
+                    <option value="watermelons">Watermelons</option>
+                    <option value="rock-melons">Rock-melons</option>
+                    <option value="honeydew">Honeydew melons</option>
+                </optgroup>
+            </select>
+        </fieldset><br>
+
+        <!-- Comment Section -->
+        <fieldset>
+            <legend>Comments</legend>
+            <textarea placeholder="Enter your comment here" rows="4" cols="50"></textarea>
+        </fieldset><br>
+
+        <!-- Submit and Reset Buttons -->
+        <button type="submit">SEND</button>
+        <button type="reset">RESET</button>
+    </form>
+</body>
+</html>

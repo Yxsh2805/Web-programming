@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Resume</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            grid-template-columns: 200px 1fr;
+            grid-template-areas: 
+                "header header"
+                "nav main"
+                "footer footer";
+            height: 100vh;
+        }
+        header {
+            grid-area: header;
+            background-color: #0044cc;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            grid-area: nav;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        main {
+            grid-area: main;
+            padding: 20px;
+        }
+        aside {
+            background-color: #e9ecef;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        footer {
+            grid-area: footer;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 10px 0;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        figure {
+            margin: 0;
+            text-align: center;
+        }
+        figure img {
+            width: 150px;
+            border-radius: 50%;
+        }
+        progress {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ayush</h1>
+        <p>Student (Vit Chennai) | Portfolio</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>A passionate web developer with expertise in creating user-friendly, responsive designs.</p>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <article>
+                <h3>Bachelor of Technology, Computer Science</h3>
+                <p>VIT University, 2023-2027</p>
+            </article>
+        </section>
+
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <article>
+                <h3>Web Developer at ABC Corp</h3>
+                <p>Developed dynamic web applications and improved site performance by 30%.</p>
+            </article>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <ul>
+                <li>HTML5, CSS3, JavaScript</li>
+                <li>python, C, C++</li>
+                <li>Git, Docker</li>
+            </ul>
+            <progress value="80" max="100">80%</progress>
+        </section>
+    </main>
+
+    <aside>
+        <figure>
+            <img src="profile.jpg" alt="Profile Photo">
+            <figcaption>Ayush</figcaption>
+        </figure>
+        <p><strong>Contact:</strong> johndoe@example.com</p>
+        <p><strong>Phone:</strong> +1-234-567-890</p>
+    </aside>
+
+    <footer>
+        <p>&copy; 2025 Ayush | All Rights Reserved</p>
+        <p>
+            <a href="https://linkedin.com/in/johndoe" style="color: white;">LinkedIn</a> | 
+            <a href="https://github.com/johndoe" style="color: white;">GitHub</a>
+        </p>
+    </footer>
+</body>
+</html>

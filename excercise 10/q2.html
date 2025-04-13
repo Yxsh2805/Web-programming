@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DOM Selection Demo</title>
+  <style>
+    .input-field {
+      padding: 5px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="main-title">Original Title</h1>
+
+  <input name="username" class="input-field" type="text" /><br>
+
+  <label><input type="radio" name="gender" value="Male" /> Male</label>
+  <label><input type="radio" name="gender" value="Female" checked /> Female</label><br>
+
+  <p class="info">Paragraph 1</p>
+  <p class="info">Paragraph 2</p>
+  <p>Paragraph 3</p>
+
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+
+  <input type="checkbox" class="hobby" value="Reading">Reading<br>
+  <input type="checkbox" class="hobby" value="Gaming">Gaming<br>
+  <input type="checkbox" class="hobby" value="Coding">Coding<br>
+
+  <script>
+    // (a) getElementById
+    document.getElementById("main-title").innerText = "Updated Title";
+
+    // (b) getElementsByName
+    document.getElementsByName("username")[0].value = "John Doe";
+
+    const genderRadios = document.getElementsByName("gender");
+    for (let radio of genderRadios) {
+      if (radio.checked) {
+        console.log("Selected gender:", radio.value);
+      }
+    }
+
+    // (c) getElementsByTagName
+    const pTags = document.getElementsByTagName("p");
+    console.log("Total <p> elements:", pTags.length);
+
+    const liItems = document.getElementsByTagName("li");
+    for (let li of liItems) {
+      console.log("List item:", li.textContent);
+    }
+
+    // (d) getElementsByClassName
+    const inputFields = document.getElementsByClassName("input-field");
+    for (let field of inputFields) {
+      field.style.backgroundColor = "lightblue";
+    }
+
+    // (e) querySelector
+    const firstInfo = document.querySelector("p.info");
+    firstInfo.innerText = "This is the first info paragraph";
+
+    const firstGenderRadio = document.querySelector("input[name='gender']");
+    firstGenderRadio.checked = true;
+
+    // (f) querySelectorAll
+    const allInfo = document.querySelectorAll("p.info");
+    allInfo.forEach(p => console.log("Info paragraph:", p.textContent));
+
+    const hobbies = document.querySelectorAll(".hobby");
+    hobbies.forEach(cb => {
+      cb.checked = true;
+      console.log("Checked hobby:", cb.value);
+    });
+  </script>
+</body>
+</html>

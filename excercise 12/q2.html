@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boat Animation</title>
+</head>
+<body>
+    <canvas id="boatCanvas" width="800" height="500"></canvas>
+
+    <script>
+        let canvas = document.getElementById("boatCanvas");
+        let ctx = canvas.getContext("2d");
+        let boatX = 50;
+
+        function drawBoat() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "brown";
+            ctx.beginPath();
+            ctx.moveTo(boatX, 350);
+            ctx.lineTo(boatX + 100, 350);
+            ctx.quadraticCurveTo(boatX + 120, 380, boatX - 20, 380);
+            ctx.fill();
+        }
+
+        function animateBoat() {
+            boatX += 2;
+            if (boatX > canvas.width) {
+                boatX = -100;
+            }
+            drawBoat();
+            requestAnimationFrame(animateBoat);
+        }
+
+        animateBoat();
+    </script>
+</body>
+</html>

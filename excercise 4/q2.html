@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        fieldset {
+            border: 2px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        legend {
+            font-weight: bold;
+            color: red;
+        }
+        label {
+            display: inline-block;
+            width: 120px;
+            margin-bottom: 10px;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 200px;
+        }
+        .hobbies {
+            margin-top: 10px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <!-- Personal Details -->
+        <fieldset>
+            <legend>Personal Details</legend>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail id:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <input type="radio" id="male" name="gender" value="Male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="Female">
+                <label for="female">Female</label>
+            </div>
+            <div class="form-group">
+                <label for="dob">DOB:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile#:</label>
+                <input type="text" id="mobile" name="mobile" required>
+            </div>
+        </fieldset>
+
+        <!-- Educational Qualification -->
+        <fieldset>
+            <legend>Educational Qualification</legend>
+            <div class="form-group">
+                <label for="degree">Degree:</label>
+                <select id="degree" name="degree" required >
+                    <option value="" disabled selected>-- Select Group --</option>
+                    <option value="cse">CSE</option>
+                    <option value="ece">ECE</option>
+                    <option value="eee">EEE</option>
+                    <option value="civil">CIVIL</option>
+                    <option value="mech">MECH</option>
+                </select>
+            </div>
+            <div class="form-group hobbies">
+                <label>Hobbies:</label>
+                <input type="checkbox" id="chess" name="hobby" value="Playing chess">
+                <label for="chess">Playing chess</label>
+                <input type="checkbox" id="reading" name="hobby" value="Reading books">
+                <label for="reading">Reading Books</label>
+            </div>
+            <div class="form-group">
+                <label for="color">Favourite Color:</label>
+                <input type="color" id="color" name="color">
+            </div>
+        </fieldset>
+
+        <!-- Address -->
+        <fieldset>
+            <legend>Address</legend>
+            <textarea rows="4" cols="40" placeholder="Enter your address here"></textarea>
+        </fieldset>
+
+        <!-- Attach Resume and Submit -->
+        <div class="form-group">
+            <label for="resume">Attach Resume:</label>
+            <input type="file" id="resume" name="resume">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

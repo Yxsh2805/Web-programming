@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Animals</title>
+    <style>
+        @keyframes rainbow {
+            0% { color: red; }
+            20% { color: orange; }
+            40% { color: yellow; }
+            60% { color: green; }
+            80% { color: blue; }
+            100% { color: violet; }
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url(https://www.burgesspetcare.com/wp-content/uploads/2024/01/pets.jpg);
+            background-position: center;
+            background-size: cover;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            font-size: 2.5em;
+            animation: rainbow 5s infinite;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .pet-descriptions {
+            column-count: 3;
+            column-gap: 40px;
+            line-height: 30pt;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .ball-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        @keyframes playBall {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, -50px) rotate(90deg) skew(10deg); }
+            50% { transform: translate(0, 0) rotate(180deg); }
+            75% { transform: translate(-100px, -50px) rotate(270deg) skew(-10deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        .ball {
+            animation: playBall 4s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Our Lovely Pets</h1>
+        
+        <div class="pet-descriptions">
+            <p>Dogs are loyal companions known for their unwavering devotion and playful nature. They come in countless breeds, each with unique characteristics and personalities.</p>
+            <p>Cats are graceful and independent pets that make wonderful companions. They are known for their agility, hunting instincts, and affectionate behavior.</p>
+            <p>Rabbits are gentle herbivores that make quiet and clean pets. They are social animals that can form strong bonds with their owners.</p>
+            <p>Hamsters are small but energetic pets that are perfect for those with limited space. They are nocturnal and love to explore their environments.</p>
+            <p>Parrots are intelligent birds known for their ability to mimic human speech. They are social creatures that require regular interaction and mental stimulation.</p>
+            <p>Fish are peaceful pets that can create a calming atmosphere in any room. They come in various colors and sizes, making them perfect for aquarium enthusiasts.</p>
+        </div>
+
+        <div class="ball-container">
+            <svg class="ball" width="50" height="50" viewBox="0 0 50 50">
+                <circle cx="25" cy="25" r="20" fill="#ff4444" stroke="#000" stroke-width="2"/>
+                <path d="M15 25 Q25 15, 35 25 Q25 35, 15 25" fill="none" stroke="#000" stroke-width="2"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

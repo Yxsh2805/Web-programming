@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1095</title>
+</head>
+<body>
+
+    <script>
+        function createTable(rows, cols) {
+            let table = document.createElement("table");
+            let tbody = document.createElement("tbody");
+
+            for (let rowIdx = 0; rowIdx < rows; rowIdx++) {
+                let row = document.createElement("tr");
+
+                for (let colIdx = 0; colIdx < cols; colIdx++) {
+                    let cell = document.createElement("td");
+                    cell.textContent = `Cell is row ${rowIdx}, column ${colIdx}`;
+                    row.appendChild(cell);
+                }
+
+                tbody.appendChild(row);
+            }
+
+            table.appendChild(tbody);
+            table.setAttribute("border", "2");
+            document.body.appendChild(table);
+        }
+
+        function createButton(text, color, hoverColor) {
+            let button = document.createElement("button");
+            button.textContent = text;
+            button.style.backgroundColor = color;
+
+            button.addEventListener("mouseover", () => {
+                button.style.backgroundColor = hoverColor;
+            });
+
+            document.body.appendChild(button);
+        }
+
+        function createTextInput() {
+            let input = document.createElement("input");
+            input.type = "text";
+            input.style.backgroundColor = "green";
+
+            input.addEventListener("focus", () => {
+                input.style.backgroundColor = "yellow";
+            });
+
+            document.body.appendChild(input);
+        }
+
+        function createListInput() {
+            let input = document.createElement("input");
+            input.type = "text";
+            document.body.appendChild(input);
+
+            let button = document.createElement("button");
+            button.textContent = "Add";
+            document.body.appendChild(button);
+
+            let list = document.createElement("ol");
+            document.body.appendChild(list);
+
+            button.addEventListener("dblclick", () => {
+                let listItem = document.createElement("li");
+                listItem.textContent = input.value;
+                list.appendChild(listItem);
+                input.value = "";
+            });
+        }
+
+        function createKeyCounter() {
+            let inputField = document.createElement("input");
+            let counterField = document.createElement("input");
+            counterField.readOnly = true;
+            
+            document.body.append(inputField, counterField);
+
+            let count = 0;
+            document.addEventListener("keydown", () => {
+                counterField.value = ++count;
+            });
+        }
+
+        // Function Calls
+        createTable(3, 3);
+        document.body.appendChild(document.createElement("br"));
+        createButton("Click me", "red", "green");
+        document.body.appendChild(document.createElement("br"));
+        createTextInput();
+        document.body.appendChild(document.createElement("br"));
+        createListInput();
+        createKeyCounter();
+    </script>
+
+</body>
+</html>

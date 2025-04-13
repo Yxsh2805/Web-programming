@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>23BCE1135</title>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Arial;
+        }
+        nav {
+            width: 200px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-right: 2px solid #000;
+        }
+        nav a {
+            display: block;
+            margin: 15px 0;
+            font-weight: bold;
+            text-decoration: none;
+            color: #000;
+        }
+        iframe {
+            flex: 1;
+            height: 600px;
+            border: none;
+        }
+        h1 {
+            position: absolute;
+            top: 10px;
+            left: 220px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="audio.html" target="content-frame">Audio</a>
+        <a href="vid.html" target="content-frame">Video</a>
+        <a href="svg.html" target="content-frame">SVG</a>
+        <a href="canvas.html" target="content-frame">Canvas</a>
+    </nav>
+
+    <iframe name="content-frame" src=""></iframe>
+</body>
+</html>

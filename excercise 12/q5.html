@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Index Manipulation</title>
+    <style>
+        .box {
+            width: 100px; height: 100px; position: absolute;
+        }
+        #box1 { background: red; top: 50px; left: 50px; }
+        #box2 { background: green; top: 80px; left: 80px; }
+        #box3 { background: blue; top: 110px; left: 110px; }
+    </style>
+</head>
+<body>
+    <div id="box1" class="box"></div>
+    <div id="box2" class="box"></div>
+    <div id="box3" class="box"></div>
+
+    <script>
+        document.querySelectorAll(".box").forEach((box, index) => {
+            box.addEventListener("click", () => {
+                box.style.zIndex = 100 + index;
+            });
+        });
+    </script>
+</body>
+</html>

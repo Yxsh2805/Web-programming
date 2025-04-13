@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Charts</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .chart-container {
+            width: 400px;
+            height: 300px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="barChart" class="chart-container"></div>
+    <div id="lineChart" class="chart-container"></div>
+    <div id="pieChart" class="chart-container"></div>
+
+    <script>
+        let layout = { width: 400, height: 300 };
+
+        Plotly.newPlot("barChart", [{ x: ["A", "B", "C"], y: [10, 20, 30], type: "bar" }], layout);
+        Plotly.newPlot("lineChart", [{ x: [1, 2, 3], y: [10, 15, 20], type: "line" }], layout);
+        Plotly.newPlot("pieChart", [{ labels: ["Red", "Blue", "Green"], values: [30, 50, 20], type: "pie" }], layout);
+    </script>
+</body>
+</html>

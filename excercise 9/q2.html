@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Airline Reservation System</title>
+</head>
+<body>
+    <h2>Airline Reservation System</h2>
+    <button onclick="bookSeat()">Book a Seat</button>
+
+    <script>
+        let seats = Array(10).fill(0);
+
+        function bookSeat() {
+            let choice = prompt("Enter 1 for First Class (Seats 1-5) or 2 for Economy (Seats 6-10):");
+
+            if (choice == "1") {
+                for (let i = 0; i < 5; i++) {
+                    if (seats[i] == 0) {
+                        seats[i] = 1;
+                        alert(`Seat booked: ${i+1} (First Class)`);
+                        return;
+                    }
+                }
+                if (confirm("First Class is full. Would you like to be placed in Economy?")) {
+                    bookEconomy();
+                } else {
+                    alert("Next flight leaves in 3 hours.");
+                }
+            } else if (choice == "2") {
+                bookEconomy();
+            } else {
+                alert("Invalid input. Try again.");
+            }
+        }
+
+        function bookEconomy() {
+            for (let i = 5; i < 10; i++) {
+                if (seats[i] == 0) {
+                    seats[i] = 1;
+                    alert(`Seat booked: ${i+1} (Economy)`);
+                    return;
+                }
+            }
+            if (confirm("Economy is full. Would you like to be placed in First Class?")) {
+                bookSeat();
+            } else {
+                alert("Next flight leaves in 3 hours.");
+            }
+        }
+    </script>
+</body>
+</html>

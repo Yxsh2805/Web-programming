@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Calculator</title>
+    <script>
+        function calculate() {
+            let num1 = parseFloat(prompt("Enter the first number:"));
+            let num2 = parseFloat(prompt("Enter the second number:"));
+            let operation = prompt("Choose an operation (+, -, *, /, %):");
+            let result;
+
+            switch (operation) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num2 !== 0 ? num1 / num2 : "Cannot divide by zero";
+                    break;
+                case '%':
+                    result = num2 !== 0 ? num1 % num2 : "Cannot find modulus with zero";
+                    break;
+                default:
+                    result = "Invalid operation";
+            }
+
+            alert("Result: " + result);
+        }
+    </script>
+</head>
+<body onload="calculate()">
+</body>
+</html>

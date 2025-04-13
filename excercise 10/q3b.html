@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Receipt</title>
+</head>
+<body>
+  <h1>Order Receipt</h1>
+  <div id="receipt"></div>
+  <script>
+    // Get URL parameters
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+    const product = params.get("product");
+    const quantity = params.get("quantity");
+
+    // Display receipt
+    document.getElementById("receipt").innerHTML = `
+      <p>Name: ${name}</p>
+      <p>Product: ${product}</p>
+      <p>Quantity: ${quantity}</p>
+    `;
+  </script>
+</body>
+</html>
